@@ -14,8 +14,8 @@ interface OTPApiInterface {
     /*@POST("auth/login")
     suspend fun login(@Body request: LoginRequest): ApiResponse<BaseResponse<LoginResponse>>*/
 
-    @GET("complaint_otp")
-    suspend fun validateOTP(@Query("complaint_id") complaint_id : String,@Query("otp") otp: String): ApiResponse<OTPResponse>
+    @GET("update_otp/")
+    suspend fun validateOTP(@Query("state") state : String,@Query("otp") otp: String): ApiResponse<OTPResponse>
     @POST("complaint_otp")
     suspend fun validateOTPPost(@Body body: OTPRequest): ApiResponse<OTPResponse>
 }

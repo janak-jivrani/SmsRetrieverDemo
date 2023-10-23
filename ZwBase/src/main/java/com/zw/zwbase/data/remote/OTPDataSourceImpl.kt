@@ -10,9 +10,9 @@ class OTPDataSourceImpl @Inject constructor(val otpApiInterface: OTPApiInterface
 
     override suspend fun uploadOTPFlow(otp: String): ApiResponse<OTPResponse> {
         //@Query("complaint_id") complaint_id : String,@Query("otp") otp: String
-        //return otpApiInterface.validateOTP(complaint_id =  "111", otp = otp)
-        val otpRequest = OTPRequest(complaint_id = "111",otp = otp)
-        return otpApiInterface.validateOTPPost(otpRequest)
+        return otpApiInterface.validateOTP(state =  "mh", otp = otp)
+        //val otpRequest = OTPRequest(complaint_id = "111",otp = otp)
+        //return otpApiInterface.validateOTPPost(otpRequest)
     }
 
 }

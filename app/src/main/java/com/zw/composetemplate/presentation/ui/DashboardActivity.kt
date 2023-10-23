@@ -160,14 +160,15 @@ class DashboardActivity : ComponentActivity() {
         viewModel.otpResponse.observe(this) {
             //TODO: handle response
             it.onSuccess {
-                Toast.makeText(this@DashboardActivity, "Response Success= ${response.body()?.message}",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardActivity, "Response Success= ${response.body()?.message}",Toast.LENGTH_LONG).show()
             }.onFailure {
-                Toast.makeText(this@DashboardActivity, "Response fail= $it",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardActivity, "Response fail= $it",Toast.LENGTH_LONG).show()
             }.onError {
-                Toast.makeText(this@DashboardActivity, "Response error= $it",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardActivity, "Response error= $it",Toast.LENGTH_LONG).show()
             }.onException {
-                Toast.makeText(this@DashboardActivity, "Response exception= $it",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@DashboardActivity, "Response exception= $it",Toast.LENGTH_LONG).show()
             }
+            viewModel.updateOTP("")
         }
     }
 
@@ -295,7 +296,7 @@ fun DashboardScreen(viewModel: DashboardViewModel) {
                         charColor = Color.White,
                         otpCount = 6
                     )
-                    Spacer(modifier = Modifier.height(16.sdp))
+                    /*Spacer(modifier = Modifier.height(16.sdp))
                     Button(
                         enabled = otpRemember.length > 5,
                         onClick = {
@@ -305,7 +306,7 @@ fun DashboardScreen(viewModel: DashboardViewModel) {
                         colors = ButtonDefaults.buttonColors(containerColor = ActiveColor)
                     ) {
                         Text(text = "Call Api")
-                    }
+                    }*/
 
                 } else {
                     Button(

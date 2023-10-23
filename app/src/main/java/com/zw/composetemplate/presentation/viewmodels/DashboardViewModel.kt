@@ -32,6 +32,9 @@ class DashboardViewModel @Inject constructor(val otpTaskUseCase: OtpTaskUseCase)
 
     fun updateOTP(it: String) {
         _otpValue.value = it
+        if (it.length >= 6) {
+            callOTPApi()
+        }
     }
 
     fun callOTPApi() {
