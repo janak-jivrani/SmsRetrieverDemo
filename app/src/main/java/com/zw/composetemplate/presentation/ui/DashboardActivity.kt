@@ -45,6 +45,8 @@ import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.mukeshsolanki.OTP_VIEW_TYPE_BORDER
 import com.mukeshsolanki.OtpView
 import com.skydoves.sandwich.ApiResponse
+import com.skydoves.sandwich.onError
+import com.skydoves.sandwich.onException
 import com.skydoves.sandwich.onFailure
 import com.skydoves.sandwich.onSuccess
 import com.zw.composetemplate.R
@@ -161,6 +163,10 @@ class DashboardActivity : ComponentActivity() {
                 Toast.makeText(this@DashboardActivity, "Response Success= ${response.body()?.message}",Toast.LENGTH_SHORT).show()
             }.onFailure {
                 Toast.makeText(this@DashboardActivity, "Response fail= $it",Toast.LENGTH_SHORT).show()
+            }.onError {
+                Toast.makeText(this@DashboardActivity, "Response error= $it",Toast.LENGTH_SHORT).show()
+            }.onException {
+                Toast.makeText(this@DashboardActivity, "Response exception= $it",Toast.LENGTH_SHORT).show()
             }
         }
     }
